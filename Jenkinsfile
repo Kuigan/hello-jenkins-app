@@ -1,5 +1,9 @@
 pipeline {
     agent any
+
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
     
     environment {
         GITHUB_REPO = 'https://github.com/Kuigan/hello-jenkins-app.git'
