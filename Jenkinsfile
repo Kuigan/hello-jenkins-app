@@ -4,7 +4,7 @@ pipeline {
     triggers {
         pollSCM('H/2 * * * *')
     }
-s
+
     environment {
         GITHUB_REPO = 'https://github.com/Kuigan/hello-jenkins-app.git'
     }
