@@ -6,27 +6,20 @@ pipeline {
     }
     
     stages {
-        
         stage('Checkout') {
-            
             steps {
                 git url: "${GITHUB_REPO}", branch: 'main'
-            }
-            
-        }
-        
-        stage('Build') {
-            
+            }        
+        }    
+        stage('Build') {            
             steps {
                 echo 'Building the app...'
                 sh 'cat app.txt'
                 echo 'Build successful.'
-            }
-            
+            }    
         }
         
         stage('Test') {
-            
             steps {
                 echo 'Testing'
                 script {
@@ -36,21 +29,15 @@ pipeline {
                     }
                 }
                 echo 'Testing successful'
-            }
-            
+            }    
         }
         
         stage('Package') {
-            
             steps {
                 echo 'Packaging...'
                 sh 'tar -cvf app.tar app.txt'
                 echo 'Package successful.'
-                
-            }
-            
+            }  
         }
-        
     }
-    
 }
